@@ -147,6 +147,8 @@ class LinkedList:
         if self.head is None:
             return 
         
+        """
+        This is my code that was wrong before:
         dummy = Node(data=0)
         dummy.next = self.head 
         node = dummy
@@ -159,6 +161,22 @@ class LinkedList:
             node.next = node.next.next
 
         return dummy.next
+
+        vs NOW:
+        
+        """
+
+        while self.head and self.head.data == data:
+            self.head = self.head.next 
+
+        node = self.head 
+        while node and node.next:
+            if node.next.data == data:
+                node.next = node.next.next
+            else:
+                node = node.next 
+
+        return self.head
     
 if __name__ == '__main__':
     ll = LinkedList()
