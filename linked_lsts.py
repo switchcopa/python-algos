@@ -177,6 +177,27 @@ class LinkedList:
                 node = node.next 
 
         return self.head
+
+    def insert_values(self, values):
+        for x in values:
+            self.insert_at_end(x)
+
+    def reverse(self):
+        if self.head is None:
+            return 
+        
+        curr = self.head 
+        prev = None 
+
+        while curr:
+            temp = curr.next 
+            curr.next = prev
+            prev = curr 
+            curr = temp 
+        
+        self.head = prev 
+
+        return prev 
     
 if __name__ == '__main__':
     ll = LinkedList()
